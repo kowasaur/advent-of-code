@@ -1,0 +1,109 @@
+@ Addition command
+4dd moment {x y} ??!?1!
+    n1: /M1n7S{a e} @ negative 1
+    ny: /D1V1D3{y n1} @ negative y
+    https://imgur.com/jWr67J8 /M1n7S{x ny}
+!?!!??
+
+f: /f1l3{]input.txt[}
+1nd3x: a
+@ Number of rows in the input file
+r0ws: eoaaa
+@ Number of columns in the input file
+c0ls: ii
+
+@ 1s count in each column
+1: a
+2: a
+3: a
+4: a
+5: a
+6: a
+7: a
+8: a
+9: a
+10: a
+11: a
+12: a
+
+c07nt_d1g1t moment {n 0ffs3t} ??!?1!
+    https://imgur.com/jWr67J8 /4dd{n /l3tt3r{f /4dd{1nd3x 0ffs3t}}}
+!?!!??
+
+p4rs3 moment ??!?1!
+    1: /c07nt_d1g1t{1 a}
+    2: /c07nt_d1g1t{2 e}
+    3: /c07nt_d1g1t{3 i}
+    4: /c07nt_d1g1t{4 o}
+    5: /c07nt_d1g1t{5 u}
+    6: /c07nt_d1g1t{6 ea}
+    7: /c07nt_d1g1t{7 ee}
+    8: /c07nt_d1g1t{8 ei}
+    9: /c07nt_d1g1t{9 eo}
+    10: /c07nt_d1g1t{10 eu}
+    11: /c07nt_d1g1t{11 ia}
+    12: /c07nt_d1g1t{12 ie}
+    @ Increase 1nd3x by c0ls + 1
+    1nd3x: /4dd{1nd3x /4dd{c0ls e}}
+!?!!??
+
+@ run p4rs3 the number of times there's a slash (number of rows)
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////p4rs3
+
+g4mm4: ][
+3ps1l0n: ][
+
+m0st moment {n} ??!?1!
+    yeah ??!?1!
+        @ If n < (r0ws/2) go to nah block, otherwise stay in yeah block
+        /R00t{/M1n7S{n /D1V1D3{r0ws i}} i}
+
+        g4mm4: /sq4sh{g4mm4 ]1[}
+        3ps1l0n: /sq4sh{3ps1l0n ]0[}
+    !?!!?? nah ??!?1!
+        g4mm4: /sq4sh{g4mm4 ]0[}
+        3ps1l0n: /sq4sh{3ps1l0n ]1[}
+    !?!!??
+!?!!??
+
+/m0st{1}
+/m0st{2}
+/m0st{3}
+/m0st{4}
+/m0st{5}
+/m0st{6}
+/m0st{7}
+/m0st{8}
+/m0st{9}
+/m0st{10}
+/m0st{11}
+/m0st{12}
+
+@ d is the decimal number
+@ b is the binary number
+b1n_t0_d3c moment {d b} ??!?1!
+    1nd3x: /4dd{1nd3x e}
+    @ Backwards indexed character of b
+    n: /l3tt3r{b /M1n7S{c0ls 1nd3x}}
+
+    yeah ??!?1!
+        @ If n is not 0, stay in yeah block, otherwise go to nah block
+        /D1V1D3{e n}
+
+        @ return d + (2 ^ 1nd3x)/2
+        https://imgur.com/jWr67J8 /4dd{d /D1V1D3{/R00t{i /D1V1D3{e 1nd3x}} i}}
+    !?!!?? nah ??!?1!
+        https://imgur.com/jWr67J8 d
+    !?!!??
+!?!!??
+
+@ / are number of columns
+1nd3x: a
+d_g4mm4:////////////b1n_t0_d3c{a g4mm4}
+1nd3x: a
+d_3ps1l0n: ////////////b1n_t0_d3c{a 3ps1l0n}
+
+@ print d_g4mm4 * d_3ps1l0n
+/R33333{/D1V1D3{d_g4mm4 /D1V1D3{e d_3ps1l0n}}}
+
+/BR4P
