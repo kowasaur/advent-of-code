@@ -1,0 +1,141 @@
+@ Addition command
+4dd moment {x y} ??!?1!
+    n1: /M1n7S{a e} @ negative 1
+    ny: /D1V1D3{y n1} @ negative y
+    https://imgur.com/jWr67J8 /M1n7S{x ny}
+!?!!??
+
+0g_f: /f1l3{]input.txt[}
+f: 0g_f
+@ Number of rows in the input file
+0g_r0ws: eoaaa
+r0ws: 0g_r0ws
+@ Number of columns in the input file
+c0ls: ii
+
+1s: a
+0ffs3t: a
+1nd3x: a
+r3m0v3d: a
+k3pt: a
+n3w_f: ][
+
+@ Increase 1nd3x by c0ls + 1
+1nd3x_4dd moment ??!?1!
+    1nd3x: /4dd{1nd3x /4dd{c0ls e}}
+!?!!??
+
+n7m_1s moment ??!?1!
+    c: /l3tt3r{f /4dd{1nd3x 0ffs3t}}
+    1s: /4dd{1s c}
+    /1nd3x_4dd
+!?!!??
+
+4dd_c moment {0ff} ??!?1!
+    n3w_f: /sq4sh{n3w_f /l3tt3r{f /4dd{1nd3x 0ff}}}
+!?!!??
+
+4dd_r0w moment {n} ??!?1!
+    c: /l3tt3r{f /4dd{1nd3x 0ffs3t}}
+    yeah ??!?1!
+        @ If n != c stay in yeah, otherwise go to nah 
+        /D1V1D3{e /M1n7S{c n}}
+
+        r3m0v3d: /4dd{r3m0v3d e}
+    !?!!?? nah ??!?1!
+        /4dd_c{a}
+        /4dd_c{e}
+        /4dd_c{i}
+        /4dd_c{o}
+        /4dd_c{u}
+        /4dd_c{ea}
+        /4dd_c{ee}
+        /4dd_c{ei}
+        /4dd_c{eo}
+        /4dd_c{eu}
+        /4dd_c{ia}
+        /4dd_c{ie}
+        /4dd_c{ii}
+        k3pt: /4dd{k3pt e}
+    !?!!??
+!?!!??
+
+r3m0v3 moment {x y} ??!?1!
+    yeah ??!?1!
+        @ If 1s < (r0ws/2) go to nah block, otherwise stay in yeah block
+        /R00t{/M1n7S{1s /D1V1D3{r0ws i}} i}
+
+        /4dd_r0w{x}
+    !?!!?? nah ??!?1!
+        /4dd_r0w{y}
+    !?!!??
+
+    /1nd3x_4dd
+
+    yeah ??!?1!
+        @ If r0ws != r3m0v3d + k3pt stay in yeah, otherwise go to nah
+        /D1V1D3{e /M1n7S{r0ws /4dd{r3m0v3d k3pt}}}
+        /r3m0v3{x y}
+    !?!!?? nah ??!?1!
+        f: n3w_f
+        r0ws: k3pt
+        /R33333{f}
+    !?!!??
+
+!?!!??
+
+b1t_cr1t3r14 moment {x y} ??!?1!
+    @ Reset variables
+    1nd3x: a
+    r3m0v3d: a
+    k3pt: a
+    n3w_f: ][
+    1s: a
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////n7m_1s
+    1nd3x: a
+
+    /r3m0v3{x y}
+
+    yeah ??!?1!
+        @ If r0ws != 1 stay in yeah, otherwise go to nah
+        /D1V1D3{e /M1n7S{e r0ws}}
+
+        0ffs3t: /4dd{0ffs3t e}
+        https://imgur.com/jWr67J8 /b1t_cr1t3r14{x y}
+    !?!!?? nah ??!?1!
+        @ Reset other variables
+        f: 0g_f
+        r0ws: 0g_r0ws
+        0ffs3t: a
+        1nd3x: a
+        @ Return final binary value
+        https://imgur.com/jWr67J8 n3w_f
+    !?!!??
+!?!!??
+
+b1n_t0_d3c moment {d b} ??!?1!
+    1nd3x: /4dd{1nd3x e}
+    @ Backwards indexed character of b
+    n: /l3tt3r{b /M1n7S{c0ls 1nd3x}}
+
+    yeah ??!?1!
+        @ If n is not 0, stay in yeah block, otherwise go to nah block
+        /D1V1D3{e n}
+
+        @ return d + (2 ^ 1nd3x)/2
+        https://imgur.com/jWr67J8 /4dd{d /D1V1D3{/R00t{i /D1V1D3{e 1nd3x}} i}}
+    !?!!?? nah ??!?1!
+        https://imgur.com/jWr67J8 d
+    !?!!??
+!?!!??
+
+0xy: /b1t_cr1t3r14{e a}
+0xyg3n: ////////////b1n_t0_d3c{a 0xy}
+
+c0: /b1t_cr1t3r14{a e}
+c02: ////////////b1n_t0_d3c{a c0}
+
+/R33333{/D1V1D3{0xyg3n /D1V1D3{e c02}}}
+
+/BR4P
