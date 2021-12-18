@@ -5,6 +5,7 @@ These are my solutions for [Advent of Code 2021](https://adventofcode.com/2021).
 | Language    | Stars    |
 | ----------- | -------- |
 | TypeScript  | \*\*\*\* |
+| Python      | \*\*\*   |
 | C           | \*\*     |
 | GDScript    | \*\*     |
 | g4m3rscr1pt | \*\*     |
@@ -12,10 +13,10 @@ These are my solutions for [Advent of Code 2021](https://adventofcode.com/2021).
 | Java        | \*\*     |
 | Go          | \*\*     |
 | fish        | \*\*     |
-| Python      | \*\*     |
 | PHP         | \*\*     |
 | Dart        | \*\*     |
 | Haskell     | \*\*     |
 | C#          | \*\*     |
 | C++         | \*\*     |
 | Rust        | \*       |
+| Desmos      | \*       |
