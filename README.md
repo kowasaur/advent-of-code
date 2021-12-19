@@ -2,21 +2,21 @@ These are my solutions for [Advent of Code 2021](https://adventofcode.com/2021).
 
 ## Languages used
 
-| Language    | Stars    |
-| ----------- | -------- |
-| TypeScript  | \*\*\*\* |
-| Python      | \*\*\*   |
-| C           | \*\*     |
-| GDScript    | \*\*     |
-| g4m3rscr1pt | \*\*     |
-| JavaScript  | \*\*     |
-| Java        | \*\*     |
-| Go          | \*\*     |
-| fish        | \*\*     |
-| PHP         | \*\*     |
-| Dart        | \*\*     |
-| Haskell     | \*\*     |
-| C#          | \*\*     |
-| C++         | \*\*     |
-| Rust        | \*       |
-| Desmos      | \*       |
+| Language    | Stars        |
+| ----------- | ------------ |
+| TypeScript  | \*\*\*\*\*\* |
+| Python      | \*\*\*       |
+| C           | \*\*         |
+| GDScript    | \*\*         |
+| g4m3rscr1pt | \*\*         |
+| JavaScript  | \*\*         |
+| Java        | \*\*         |
+| Go          | \*\*         |
+| fish        | \*\*         |
+| PHP         | \*\*         |
+| Dart        | \*\*         |
+| Haskell     | \*\*         |
+| C#          | \*\*         |
+| C++         | \*\*         |
+| Rust        | \*           |
+| Desmos      | \*           |
