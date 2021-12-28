@@ -5,7 +5,7 @@ These are my solutions for [Advent of Code 2021](https://adventofcode.com/2021).
 | Language    | Stars        |
 | ----------- | ------------ |
 | TypeScript  | \*\*\*\*\*\* |
-| Python      | \*\*\*       |
+| Python      | \*\*\*\*\*   |
 | C           | \*\*         |
 | GDScript    | \*\*         |
 | g4m3rscr1pt | \*\*         |
