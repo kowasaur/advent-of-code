@@ -22,4 +22,5 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Ruby        | \*\*               |
 | Perl        | \*\*               |
 | OCaml       | \*\*               |
+| Nim         | \*\*               |
 | Desmos      | \*                 |
