@@ -24,4 +24,5 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | OCaml       | \*\*               |
 | Nim         | \*\*               |
 | R           | \*\*               |
+| Lua         | \*\*               |
 | Desmos      | \*                 |
