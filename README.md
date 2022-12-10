@@ -6,6 +6,7 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | ----------- | ------------------ |
 | Python      | \*\*\*\*\*\*\*\*\* |
 | TypeScript  | \*\*\*\*\*\*       |
+| C#          | \*\*\*\*           |
 | Rust        | \*\*\*             |
 | C           | \*\*               |
 | GDScript    | \*\*               |
@@ -17,7 +18,6 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | PHP         | \*\*               |
 | Dart        | \*\*               |
 | Haskell     | \*\*               |
-| C#          | \*\*               |
 | C++         | \*\*               |
 | Ruby        | \*\*               |
 | Perl        | \*\*               |
