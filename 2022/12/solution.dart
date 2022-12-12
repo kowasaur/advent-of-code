@@ -72,12 +72,22 @@ int shortestPathLength(Hill file, List<Pair> path, Pair new_coord) {
 }
 
 void main() {
-  final file = File("./input.txt")
+  final Hill file = File("./input.txt")
       .readAsLinesSync()
       .map((line) => line.runes.map((e) => e).toList())
       .toList();
   final start =
       Pair(0, file.indexWhere((line) => line.contains('S'.codeUnits[0])));
 
-  print(shortestPathLength(file, <Pair>[], start));
+  int shortest = shortestPathLength(file, <Pair>[], start);
+  print("Part 1: ${shortest}");
+
+  for (var y = 0; y < file.length; y++) {
+    for (var x = 0; x < file[0].length; x++) {
+      final point = Pair(x, y);
+      if (point.value(file) == a)
+        shortest = min(shortest, shortestPathLength(file, <Pair>[], point));
+    }
+  }
+  print("Part 2: ${shortest}");
 }
