@@ -5,7 +5,7 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Language    | Stars                  |
 | ----------- | ---------------------- |
 | Python      | \*\*\*\*\*\*\*\*\*\*\* |
-| TypeScript  | \*\*\*\*\*\*           |
+| TypeScript  | \*\*\*\*\*\*\*\*       |
 | C#          | \*\*\*\*               |
 | Rust        | \*\*\*                 |
 | C           | \*\*                   |
