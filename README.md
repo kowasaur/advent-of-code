@@ -9,11 +9,11 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | C#          | \*\*\*\*                   |
 | Dart        | \*\*\*\*                   |
 | C++         | \*\*\*\*                   |
+| JavaScript  | \*\*\*\*                   |
 | Rust        | \*\*\*                     |
 | C           | \*\*                       |
 | GDScript    | \*\*                       |
 | g4m3rscr1pt | \*\*                       |
-| JavaScript  | \*\*                       |
 | Java        | \*\*                       |
 | Go          | \*\*                       |
 | fish        | \*\*                       |
