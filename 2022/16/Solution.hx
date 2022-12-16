@@ -32,7 +32,6 @@ function main() {
     }];
 
     while (minutes_left > 0) {
-        trace(minutes_left);
         minutes_left--;
         var new_nodes = new Array<Node>();
 
@@ -67,6 +66,11 @@ function main() {
         }
 
         nodes = new_nodes;
+        // Remove the worst half
+        if (minutes_left < 28 && (minutes_left+1) % 2 == 0) {
+            nodes.sort((a, b) -> a.pressure - b.pressure);
+            nodes = nodes.slice(Math.floor(nodes.length / 2));
+        }
     }
 
     Sys.println("Part 1: " + Lambda.fold(nodes, (n, result) -> Math.max(n.pressure, result), 0));
