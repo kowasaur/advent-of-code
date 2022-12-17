@@ -4,13 +4,12 @@ typedef Valve = { flow_rate: Int, tunnels: Array<String> };
 typedef Node = { 
     pressure: Int, 
     open: Map<String, Bool>, 
-    dont_revisit: Map<String, Bool>, 
     previous: String, 
     current: String
 };
 
 function main() {
-    var file = File.getContent("input.txt").split("\n");
+    var file = File.getContent("example.txt").split("\n");
     var valves = new Map<String, Valve>();
 
     for (line in file) {
@@ -26,7 +25,6 @@ function main() {
     var nodes: Array<Node> = [{
         pressure: 0, 
         open: new Map<String, Bool>(), 
-        dont_revisit: new Map<String, Bool>(), 
         previous: null, 
         current: "AA"
     }];
@@ -38,22 +36,15 @@ function main() {
         for (node in nodes) {
             var self = node.current;
             var valve = valves[self];
-            var tunnels = valve.tunnels.filter(t -> !node.dont_revisit[t]);
+            var tunnels = valve.tunnels;
 
             if (valve.flow_rate != 0 && !node.open.exists(self)) {
                 var new_open = node.open.copy();
                 new_open[self] = true;
 
-                var new_dont_revisit = node.dont_revisit;
-                if (tunnels.length == 1) {
-                    new_dont_revisit = new_dont_revisit.copy();
-                    new_dont_revisit[self] = true;
-                }
-
                 new_nodes.push({
                     pressure: node.pressure + valve.flow_rate * minutes_left, 
                     open: new_open, 
-                    dont_revisit: new_dont_revisit, 
                     previous: null, 
                     current: self
                 });
@@ -61,7 +52,7 @@ function main() {
 
             for (tunnel in tunnels) {
                 if (tunnel == node.previous) continue;
-                new_nodes.push({pressure: node.pressure, open: node.open, dont_revisit: node.dont_revisit, previous: node.current, current: tunnel});
+                new_nodes.push({pressure: node.pressure, open: node.open, previous: node.current, current: tunnel});
             }
         }
 
