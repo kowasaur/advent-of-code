@@ -11,7 +11,7 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | C++         | \*\*\*\*                   |
 | JavaScript  | \*\*\*\*                   |
 | Rust        | \*\*\*                     |
-| C           | \*\*                       |
+| C           | \*\*\*                     |
 | GDScript    | \*\*                       |
 | g4m3rscr1pt | \*\*                       |
 | Java        | \*\*                       |
