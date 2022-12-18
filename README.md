@@ -10,12 +10,12 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Dart        | \*\*\*\*                   |
 | C++         | \*\*\*\*                   |
 | JavaScript  | \*\*\*\*                   |
+| C           | \*\*\*\*                   |
 | Rust        | \*\*\*                     |
-| C           | \*\*\*                     |
+| Go          | \*\*\*                     |
 | GDScript    | \*\*                       |
 | g4m3rscr1pt | \*\*                       |
 | Java        | \*\*                       |
-| Go          | \*\*                       |
 | fish        | \*\*                       |
 | PHP         | \*\*                       |
 | Haskell     | \*\*                       |
