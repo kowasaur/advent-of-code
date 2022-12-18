@@ -26,14 +26,11 @@ func shareSide(p1, p2 [3]int) bool {
     return same == 2 && oneDifferent(unique1, unique2)
 }
 
-func amountAdjacent(coordington [][][]bool, x, y, z int) int {
-    amount := 0
-    for _, i := range [...]int{-1, 1} {
-        if coordington[z][y][x + i] { amount++ }
-        if y + i >= 0 && len(coordington[z][y + i]) > 0 && coordington[z][y + i][x] { amount++ }
-        if len(coordington[z + i][y]) > 0 && coordington[z + i][y][x] { amount++ }
+func invalidCoord(coord [3]int) bool {
+    for _, part := range coord {
+        if part < 0 || part >= 24 { return true }
     }
-    return amount
+    return false
 }
 
 func main() {
@@ -59,37 +56,41 @@ func main() {
 
     fmt.Printf("Part 1: %d\n", surface_area)
 
-    coordington := make([][][]bool, 22)
+    exterior_surface_area := 0
+    var lava [24][24][24]bool
+    checked := [24][24][24]bool{{{true}}}
+    will_check := [][3]int{{0, 0, 0}}    
+
     for _, coord := range coords {
-        if len(coordington[coord[2]]) == 0 { coordington[coord[2]] = make([][]bool, 22) }
-        if len(coordington[coord[2]][coord[1]]) == 0 { coordington[coord[2]][coord[1]] = make([]bool, 22) }
-        coordington[coord[2]][coord[1]][coord[0]] = true
+        // Add padding
+        lava[coord[2]+1][coord[1]+1][coord[0]+1] = true
     }
 
-    min_z := 0
-    for len(coordington[min_z]) == 0 { min_z++ }
-    max_z := 21
-    for len(coordington[max_z]) == 0 { max_z-- }
+    for len(will_check) > 0 {
+        new_will_check := [][3]int{}
+        for _, coord := range will_check {
+            x := coord[0]
+            y := coord[1]
+            z := coord[2]
 
-    for z := min_z + 1; z < max_z - 1; z++ {
-        min_y := 0
-        for len(coordington[z][min_y]) == 0 { min_y++ }
-        max_y := 21
-        for len(coordington[z][max_y]) == 0 { max_y-- }
+            for _, i := range [...]int{-1, 1} {
+                for _, change := range [...][3]int{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}} {
+                    new_coord := [...]int{x + i * change[0], y + i * change[1], z + i * change[2]}
+                    if invalidCoord(new_coord) || checked[new_coord[2]][new_coord[1]][new_coord[0]] { continue }
 
-        for y := min_y + 1; y < max_y - 1; y++ {
-            min_x := 0
-            for !coordington[z][y][min_x] { min_x++ }
-            max_x := 21
-            for !coordington[z][y][max_x] { max_x-- }
+                    if lava[new_coord[2]][new_coord[1]][new_coord[0]] {
+                        exterior_surface_area++
+                        continue
+                    }
 
-            for x := min_x + 1; x < max_x - 1; x++ {
-                if !coordington[z][y][x] { 
-                    surface_area -= amountAdjacent(coordington, x, y, z)
+                    checked[new_coord[2]][new_coord[1]][new_coord[0]] = true
+                    new_will_check = append(new_will_check, new_coord)
                 }
             }
         }
+        will_check = new_will_check
     }
 
-    fmt.Println(surface_area)
+    fmt.Printf("Part 2: %d\n", exterior_surface_area)
+
 }
