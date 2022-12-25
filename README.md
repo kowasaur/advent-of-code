@@ -29,3 +29,4 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Swift       | \*\*                       |
 | Haxe        | \*\*                       |
 | Desmos      | \*                         |
+| Umi         | \*                         |

@@ -1,0 +1,55 @@
+# Done on this commit: https://github.com/kowasaur/umi/tree/e09dffedae9c3975ae89cbaaf23c52467dddca03
+
+Long snafuToLong(String snafu, Dict[Char, Int] digits_int) {
+    mut Int i = snafu.size() - 1
+    mut Long five = Long(1) # idk what to call it but like 1, 5, 25, 125, 625, etc
+    mut Long result = Long(0)
+
+    while i >= 0 {
+        result = result + five * Long(digits_int.get(snafu.get(i)))
+        five = five * Long(5)
+        i = i - 1
+    }
+
+    result
+}
+
+String longToSnafu(Long number, Dict[Int, String] digits_snafu) {
+    mut Long num = number
+    mut String snafu = ""
+
+    while num != Long(0) {
+        Int i = (num % Long(5)).toInt()
+        Int digit = if i >= 3 { i - 5 } else { i }
+        snafu = digits_snafu.get(digit) + snafu
+        num = (num - Long(digit)) / Long(5)
+    }
+
+    snafu
+}
+
+Void main() {
+    Dict[Char, Int] digits_int = Dict[Char, Int]()
+    digits_int.set('0', 0)
+    digits_int.set('1', 1)
+    digits_int.set('2', 2)
+    digits_int.set('-', -1)
+    digits_int.set('=', -2)
+    Dict[Int, String] digits_snafu = Dict[Int, String]()
+    digits_snafu.set(0, "0")
+    digits_snafu.set(1, "1")
+    digits_snafu.set(2, "2")
+    digits_snafu.set(-1, "-")
+    digits_snafu.set(-2, "=")
+    
+    Array[String] snafu_nums = File.readLines("input.txt")
+    mut Long sum = Long(0)
+    mut Int i = 0
+
+    while i < snafu_nums.size() {
+        sum = sum + snafuToLong(snafu_nums.get(i), digits_int)
+        i = i + 1
+    }
+
+    print("Part 1: " + longToSnafu(sum, digits_snafu))
+}

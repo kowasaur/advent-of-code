@@ -2,3 +2,5 @@
 **/solution
 **/node_modules
 **/a.out
+**/*.exe
+**/*.il
