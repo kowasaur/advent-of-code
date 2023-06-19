@@ -12,10 +12,10 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | JavaScript  | \*\*\*\*                       |
 | C           | \*\*\*\*                       |
 | Go          | \*\*\*\*                       |
+| Java        | \*\*\*\*                       |
 | Rust        | \*\*\*                         |
 | GDScript    | \*\*                           |
 | g4m3rscr1pt | \*\*                           |
-| Java        | \*\*                           |
 | fish        | \*\*                           |
 | PHP         | \*\*                           |
 | Haskell     | \*\*                           |
