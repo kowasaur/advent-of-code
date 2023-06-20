@@ -6,11 +6,11 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | ----------- | ------------------------------ |
 | Python      | \*\*\*\*\*\*\*\*\*\*\*\*\*\*\* |
 | TypeScript  | \*\*\*\*\*\*\*\*               |
+| C           | \*\*\*\*\*\*                   |
 | C#          | \*\*\*\*                       |
 | Dart        | \*\*\*\*                       |
 | C++         | \*\*\*\*                       |
 | JavaScript  | \*\*\*\*                       |
-| C           | \*\*\*\*                       |
 | Go          | \*\*\*\*                       |
 | Java        | \*\*\*\*                       |
 | Rust        | \*\*\*                         |
