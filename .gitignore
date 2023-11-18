@@ -1,6 +1,10 @@
 **/__pycache__
 **/solution
 **/node_modules
+**/obj
+**/bin
 **/a.out
 **/*.exe
 **/*.il
+**/*.class
+**/env.fish
