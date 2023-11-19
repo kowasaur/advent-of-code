@@ -20,11 +20,9 @@ class Solution {
     }
 
     public static void main(String[] _args) {
-        int[] bounds = AoC.readNumbersSplitBy("-");
+        int[] bounds = AoC.readNumbersSplitBy("-", "04/input.txt");
         int min = bounds[0];
         int max = bounds[1];
-
-        System.out.println(part2Check(112222));
 
         long part1 = IntStream.rangeClosed(min, max)
             .filter(n -> {
