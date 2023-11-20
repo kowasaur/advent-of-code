@@ -1,3 +1,4 @@
+import java.io.IOException;
 import utils.*;
 
 class Solution {
@@ -11,7 +12,7 @@ class Solution {
         return program[program[i+offset]];
     }
 
-    static int runProgram(int input) {
+    static int runProgram(int input) throws IOException {
         int[] program = AoC.readNumbersSplitBy(",", "05/input.txt");
         int i = 2;
         // only one input so don't need to implement opcode 3
@@ -63,7 +64,7 @@ class Solution {
         return value(program, i-2, 1);
     }
 
-    public static void main(String[] _args) {
+    public static void main(String[] _args) throws IOException {
         AoC.printResult(1, runProgram(1));
         AoC.printResult(2, runProgram(5));
     }

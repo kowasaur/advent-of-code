@@ -5,9 +5,9 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Language    | Stars                          |
 | ----------- | ------------------------------ |
 | Python      | \*\*\*\*\*\*\*\*\*\*\*\*\*\*\* |
+| Java        | \*\*\*\*\*\*\*\*\*\*           |
 | TypeScript  | \*\*\*\*\*\*\*\*               |
 | C           | \*\*\*\*\*\*\*\*               |
-| Java        | \*\*\*\*\*\*\*\*               |
 | C#          | \*\*\*\*                       |
 | Dart        | \*\*\*\*                       |
 | C++         | \*\*\*\*                       |

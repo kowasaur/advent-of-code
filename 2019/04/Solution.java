@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.stream.IntStream;
 import utils.*;
 
@@ -19,7 +20,7 @@ class Solution {
         return false;
     }
 
-    public static void main(String[] _args) {
+    public static void main(String[] _args) throws IOException {
         int[] bounds = AoC.readNumbersSplitBy("-", "04/input.txt");
         int min = bounds[0];
         int max = bounds[1];
