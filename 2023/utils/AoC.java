@@ -3,8 +3,9 @@ package utils;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
 public class AoC {
@@ -18,6 +19,15 @@ public class AoC {
 
     public static int[] intArray(String[] arr) {
         return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
+    }
+
+    public static ArrayList<String> findAllMatches(String str, String regex) {
+        ArrayList<String> allMatches = new ArrayList<String>();
+        Matcher matcher = Pattern.compile(regex).matcher(str);
+        while (matcher.find())
+            allMatches.add(matcher.group());
+        return allMatches;
+
     }
 
     public static void print(int[] thing) {
