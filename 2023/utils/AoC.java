@@ -21,6 +21,16 @@ public class AoC {
         return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
     }
 
+    public static String reverse(String str) {
+        return new StringBuilder(str).reverse().toString();
+    }
+
+    public static String findFirst(String str, String regex) {
+        Matcher matcher = Pattern.compile(regex).matcher(str);
+        matcher.find();
+        return matcher.group();
+    }
+
     public static ArrayList<String> findAllMatches(String str, String regex) {
         ArrayList<String> allMatches = new ArrayList<String>();
         Matcher matcher = Pattern.compile(regex).matcher(str);
