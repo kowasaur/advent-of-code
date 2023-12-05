@@ -21,6 +21,14 @@ public class AoC {
         return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
     }
 
+    public static long[] longArray(String[] arr) {
+        return Stream.of(arr).mapToLong(Long::parseLong).toArray();
+    }
+
+    public static <T> List<T> sorted(T[] arr, Comparator<? super T> comp) {
+        return Arrays.stream(arr).sorted(comp).toList();
+    }
+
     public static String reverse(String str) {
         return new StringBuilder(str).reverse().toString();
     }
