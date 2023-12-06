@@ -48,7 +48,17 @@ public class AoC {
 
     }
 
+    // find the solutions to a quadratic of the form ax^2 + bx + c
+    public static double[] quadratic(double a, double b, double c) {
+        double t = Math.sqrt(b*b - 4*a*c);
+        return new double[] {(-b - t)/(2*a), (-b + t)/(2*a)};
+    }
+
     public static void print(int[] thing) {
+        System.out.println(Arrays.toString(thing));
+    }
+
+    public static void print(double[] thing) {
         System.out.println(Arrays.toString(thing));
     }
 
