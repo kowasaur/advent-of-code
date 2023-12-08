@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 public class AoC {
     public static int[] readNumbersSplitBy(String sep, String path) throws IOException {
@@ -52,6 +52,27 @@ public class AoC {
     public static double[] quadratic(double a, double b, double c) {
         double t = Math.sqrt(b*b - 4*a*c);
         return new double[] {(-b - t)/(2*a), (-b + t)/(2*a)};
+    }
+
+    public static long gcd(long x, long y) {
+        return y == 0 ? x : gcd(y, x % y);
+    }
+
+    public static long lcm(long x, long y) {
+        return x*y / gcd(x, y);
+    }
+
+    public static long gcd(List<Long> nums) {
+        return nums.stream().reduce(0l, (x, y) -> gcd(x, y));
+    }
+
+    // this and the gcd functions above modified from https://stackoverflow.com/a/40531215
+    public static long lcm(List<Long> nums) {
+        return nums.stream().reduce(1l, (x, y) -> x * (y / gcd(x, y)));
+    }
+
+    public static long lcm(LongStream nums) {
+        return nums.reduce(1, (x, y) -> (x * (y / gcd(x, y))));
     }
 
     public static void print(int[] thing) {
