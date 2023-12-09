@@ -25,6 +25,10 @@ public class AoC {
         return Stream.of(arr).mapToLong(Long::parseLong).toArray();
     }
 
+    public static long[] longArray(String line, String sep) {
+        return longArray(line.split(sep));
+    }
+
     public static <T> List<T> sorted(T[] arr, Comparator<? super T> comp) {
         return Arrays.stream(arr).sorted(comp).toList();
     }
