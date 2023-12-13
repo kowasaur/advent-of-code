@@ -17,6 +17,19 @@ public class AoC {
         return Files.readAllLines(Paths.get(path));
     }
 
+    public static String readFile(String path) throws IOException {
+        return Files.readString(Paths.get(path)).trim();
+    }
+
+    public static Grid readGrid(String path) throws IOException {
+        return new Grid(readFile(path));
+    }
+
+    public static Grid[] readGrids(String path) throws IOException {
+        var file = readFile(path).split("\n\n");
+        return Arrays.stream(file).map(s -> new Grid(s)).toArray(Grid[]::new);
+    }
+
     public static int[] intArray(String[] arr) {
         return Stream.of(arr).mapToInt(Integer::parseInt).toArray();
     }
