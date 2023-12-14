@@ -3,6 +3,7 @@
 **/node_modules
 **/obj
 **/bin
+**/dist*
 **/a.out
 **/*.exe
 **/*.il

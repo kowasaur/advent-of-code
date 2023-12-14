@@ -3,9 +3,7 @@ import java.util.*;
 import utils.*;
 
 class Solution {
-    public static void main(String[] _args) throws IOException {
-        var grid = AoC.readGrid("14/input.txt");
-
+    static void tilt(Grid grid) {
         for (int k = grid.rows.length; k > 0; k--) {
             for (int i = 1; i < k; i++) {
                 for (int j = 0; j < grid.rows[i].length; j++) {
@@ -16,17 +14,40 @@ class Solution {
                 }
             }
         }
+    }
 
-        int result1 = 0;
-        int result2 = 0;
+    static Grid cycle(Grid grid) {
+        for (int i = 0; i < 4; i++) {
+            tilt(grid);
+            grid = grid.rotated();
+        }
+        return grid;
+    }
 
+    static int load(Grid grid) {
+        int result = 0;
         for (int i = 0; i < grid.rows.length; i++) {
             for (int j = 0; j < grid.cols.length; j++) {
-                if (grid.get(i,j) == 'O') result1 += grid.rows.length - i;
+                if (grid.get(i,j) == 'O') result += grid.rows.length - i;
             }
         }
+        return result;
+    }
 
-        AoC.printResult(1, result1);
-        AoC.printResult(2, result2);
+    public static void main(String[] _args) throws IOException {
+        var grid = AoC.readGrid("14/sample.txt");
+
+        var grid1 = grid.copy();
+        tilt(grid1);
+        AoC.printResult(1, load(grid1));
+
+        Grid old_grid;
+        for (int i = 0; i < 1000000000; i++) {
+            old_grid = grid;
+            grid = cycle(grid);
+            if (grid.equals(old_grid)) break;
+        }
+
+        AoC.printResult(2, load(grid));
     }
 }

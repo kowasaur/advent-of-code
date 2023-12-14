@@ -8,7 +8,11 @@ public class Grid {
     public final char[][] cols;
 
     public Grid(String grid) {
-        rows = Arrays.stream(grid.split("\n")).map(s -> s.toCharArray()).toArray(char[][]::new);
+        this(Arrays.stream(grid.split("\n")).map(s -> s.toCharArray()).toArray(char[][]::new));
+    }
+
+    public Grid(char[][] rows) {
+        this.rows = rows;
         cols = new char[rows[0].length][rows.length];
         for (int y = 0; y < rows.length; y++) {
             for (int x = 0; x < cols.length; x++) {
@@ -26,6 +30,20 @@ public class Grid {
         cols[column][row] = value;
     }
 
+    public Grid copy() {
+        return new Grid(toString());
+    }
+
+    public Grid rotated() {
+        var new_rows = new char[cols.length][rows.length];
+        for (int y = 0; y < rows.length; y++) {
+            for (int x = 0; x < cols.length; x++) {
+                new_rows[x][rows.length-1-y] = get(y,x);
+            }
+        }
+        return new Grid(new_rows);
+    }
+
     public String[] rowStrings() {
         return Arrays.stream(rows).map(c -> new String(c)).toArray(String[]::new);
     }
@@ -37,5 +55,11 @@ public class Grid {
     @Override
     public String toString() {
         return String.join("\n", rowStrings());
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        var other_rows = ((Grid)obj).rows;
+        return Arrays.deepEquals(rows, other_rows);
     }
 }
