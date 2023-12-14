@@ -48,9 +48,9 @@ class Solution {
     }
 
     static int summarizePattern(Grid pattern, Function<String[], Integer> find) {
-        int vertical = find.apply(pattern.cols);
+        int vertical = find.apply(pattern.colStrings());
         if (vertical != -1) return vertical;
-        return find.apply(pattern.rows) * 100;
+        return find.apply(pattern.rowStrings()) * 100;
     }
 
     public static void main(String[] _args) throws IOException {
