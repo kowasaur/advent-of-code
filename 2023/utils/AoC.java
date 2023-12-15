@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.ToLongFunction;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.*;
@@ -40,6 +41,10 @@ public class AoC {
 
     public static long[] longArray(String line, String sep) {
         return longArray(line.split(sep));
+    }
+
+    public static long mapSum(String[] arr, ToLongFunction<String> mapper) {
+        return Arrays.stream(arr).mapToLong(mapper).sum();
     }
 
     public static <T> List<T> sorted(T[] arr, Comparator<? super T> comp) {
