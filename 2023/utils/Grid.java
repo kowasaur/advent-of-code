@@ -25,9 +25,23 @@ public class Grid {
         return rows[row][column];
     }
 
+    public char get(Point point) {
+        return get(point.y, point.x);
+    }
+
     public void set(int row, int column, char value) {
         rows[row][column] = value;
         cols[column][row] = value;
+    }
+
+    public void set(Point point, char value) {
+        set(point.y, point.x, value);
+    }
+
+    public boolean inBounds(Point point) {
+        int x = point.x;
+        int y = point.y;
+        return x >= 0 && y >= 0 && y < rows.length && x < cols.length;
     }
 
     public Grid copy() {
