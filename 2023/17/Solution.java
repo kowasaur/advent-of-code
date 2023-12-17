@@ -3,14 +3,13 @@ import java.util.*;
 import utils.*;
 
 class Solution {
-    public static void main(String[] _args) throws IOException {
-        Grid map = AoC.readGrid("17/input.txt");
+    static int minimumHeatLoss(Grid map, int max_straight, int min_straight, Direction initial_dir) {
         Point end = new Point(map.cols.length-1, map.rows.length-1);
 
-        var nodes = new Node[map.rows.length][map.cols.length][3][4];
+        var nodes = new Node[map.rows.length][map.cols.length][max_straight][4];
         for (int y = 0; y < map.rows.length; y++) {
             for (int x = 0; x < map.cols.length; x++) {
-                for (int i = 0; i < 3; i++) {
+                for (int i = 0; i < max_straight; i++) {
                     for (int j = 0; j < 4; j++) {
                         nodes[y][x][i][j] = new Node(new Point(x, y), i, Direction.values()[j], map);
                     }
@@ -19,7 +18,7 @@ class Solution {
         }
 
         var open = new HashSet<Node>();
-        var start = nodes[0][0][0][0];
+        var start = nodes[0][0][0][initial_dir.ordinal()];
         start.g_score = 0;
         open.add(start);
         
@@ -28,18 +27,17 @@ class Solution {
             open.remove(current);
             if (current.p.equals(end)) continue;
 
-
             for (var dir : Direction.values()) {
                 var n = current.p.moved(dir);
                 if (!map.inBounds(n)) continue;
                 if (dir.opposite() == current.dir) continue;
-
+                
                 int con = 0;
                 if (dir == current.dir) {
-                    if (current.consecutive == 2) continue;
+                    if (current.consecutive == max_straight-1) continue;
                     con = current.consecutive+1;
-                }
-
+                } else if (current.consecutive+1 < min_straight) continue;
+                
                 Node neighbour = nodes[n.y][n.x][con][dir.ordinal()];
                 var new_g_score = current.g_score + neighbour.loss;
                 if (new_g_score < neighbour.g_score) {
@@ -50,19 +48,26 @@ class Solution {
             }
         }
 
-        int result1 = Integer.MAX_VALUE;
-        for (int i = 0; i < 3; i++) {
+        int result = Integer.MAX_VALUE;
+        for (int i = 0; i < max_straight; i++) {
             for (int j = 0; j < 4; j++) {
-                result1 = Math.min(result1, nodes[end.y][end.x][i][j].loss);
+                var node = nodes[end.y][end.x][i][j];
+                if (node.consecutive+1 >= min_straight) result = Math.min(result, node.g_score);
             }
         }
-        AoC.printResult(1, result1);
+        return result;
+    }
+
+    public static void main(String[] _args) throws IOException {
+        Grid map = AoC.readGrid("17/input.txt");
+        AoC.printResult(1, minimumHeatLoss(map, 3, 0, Direction.RIGHT));
+        AoC.printResult(2, minimumHeatLoss(map, 10, 4, Direction.DOWN));
     }
 }
 
 class Node {
     public final Point p;
-    public final int consecutive;
+    public int consecutive;
     public final Direction dir;
     public final int loss;
     public int g_score = 1000000;
