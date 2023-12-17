@@ -1,5 +1,7 @@
 package utils;
 
+import java.util.Objects;
+
 public class Point {
     public int x;
     public int y;
@@ -25,5 +27,10 @@ public class Point {
     public boolean equals(Object obj) {
         var other = (Point)obj;
         return other.x == x && other.y == y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
