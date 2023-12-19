@@ -11,11 +11,15 @@ public class Point {
         this.y = y;
     }
 
+    public Point moved(Direction dir, int amount) {
+        if (dir == Direction.UP) return new Point(x, y-amount);
+        if (dir == Direction.DOWN) return new Point(x, y+amount);
+        if (dir == Direction.LEFT) return new Point(x-amount, y);
+        return new Point(x+amount, y);
+    }
+
     public Point moved(Direction dir) {
-        if (dir == Direction.UP) return new Point(x, y-1);
-        if (dir == Direction.DOWN) return new Point(x, y+1);
-        if (dir == Direction.LEFT) return new Point(x-1, y);
-        return new Point(x+1, y);
+        return moved(dir, 1);
     }
 
     @Override
