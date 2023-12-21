@@ -38,6 +38,15 @@ public class Grid {
         set(point.y, point.x, value);
     }
 
+    public Point findFirst(char c) {
+        for (int y = 0; y < rows.length; y++) {
+            for (int x = 0; x < cols.length; x++) {
+                if (rows[y][x] == c) return new Point(x, y);
+            }
+        }
+        return null;
+    }
+
     public boolean inBounds(Point point) {
         int x = point.x;
         int y = point.y;
