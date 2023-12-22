@@ -3,6 +3,25 @@ import java.util.*;
 import utils.*;
 
 class Solution {
+    static Set<Brick> wouldFall(Set<Brick> moved, Brick brick) {
+        if (brick.dependents.size() == 0) return moved;
+
+        for (var dependent : brick.dependents) {
+            if (dependent.dependencies.stream().allMatch(d -> moved.contains(d))) {
+                moved.add(dependent);
+                wouldFall(moved, dependent);
+            }
+        }
+        
+        return moved;
+    }
+
+    static int wouldFall(Brick brick) {
+        var moved = new HashSet<Brick>();
+        moved.add(brick);
+        return wouldFall(moved, brick).size()-1;
+    }
+
     public static void main(String[] _args) throws IOException {
         var all_bricks = AoC.readLines("22/input.txt").stream().map(Brick::new).toList();
         @SuppressWarnings("unchecked")
@@ -48,8 +67,7 @@ class Solution {
         }
         AoC.printResult(1, result1);
 
-        int result2 = 0;
-        AoC.printResult(2, result2);
+        AoC.printResult(2, all_bricks.stream().mapToInt(Solution::wouldFall).sum());
     }
 }
 
