@@ -38,6 +38,15 @@ public class Grid {
         set(point.y, point.x, value);
     }
 
+    // get but it wraps around so like -1 is length-1
+    public char getWrap(int row, int column) {
+        return get(Math.floorMod(row, rows.length), Math.floorMod(column, cols.length));
+    }
+
+    public char getWrap(Point point) {
+        return getWrap(point.y, point.x);
+    }
+
     public Point findFirst(char c) {
         for (int y = 0; y < rows.length; y++) {
             for (int x = 0; x < cols.length; x++) {
