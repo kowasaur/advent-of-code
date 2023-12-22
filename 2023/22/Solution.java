@@ -3,34 +3,6 @@ import java.util.*;
 import utils.*;
 
 class Solution {
-    static boolean tick(ArrayList<Brick>[] bricks) {
-        var changed = false;
-        for (int z = 1; z < bricks.length; z++) {
-            var new_brick_layer = new ArrayList<Brick>();
-            for (var b : bricks[z]) {
-                int fall_amount = b.z.y-b.z.x+1;
-                if (z-fall_amount < 0) continue;
-                var fall = true;
-                for (var below : bricks[z-fall_amount]) {
-                    if (b.onTop(below)) {
-                        fall = false;
-                        b.dependencies.add(below);
-                        below.dependents.add(b);
-                    }
-                }
-                if (fall) {
-                    bricks[z-1].add(b);
-                    b.fall();
-                    changed = true;
-                } else {
-                    new_brick_layer.add(b);
-                }
-            }
-            bricks[z] = new_brick_layer;
-        }
-        return changed;
-    }
-
     public static void main(String[] _args) throws IOException {
         var all_bricks = AoC.readLines("22/input.txt").stream().map(Brick::new).toList();
         @SuppressWarnings("unchecked")
@@ -38,7 +10,33 @@ class Solution {
         for (int i = 0; i < bricks.length; i++) bricks[i] = new ArrayList<Brick>();
         for (var b : all_bricks) bricks[b.getZ()].add(b);
 
-        for (int j = 0; j < bricks.length; j++) tick(bricks);
+        for (int j = 1; j < bricks.length; j++) {
+            for (int z = j; z > 0; z--) {
+                var new_brick_layer = new ArrayList<Brick>();
+                for (var b : bricks[z]) {
+                    int fall_amount = b.z.y-b.z.x+1;
+                    if (z-fall_amount < 0) {
+                        new_brick_layer.add(b);
+                        continue;
+                    }
+                    var fall = true;
+                    for (var below : bricks[z-fall_amount]) {
+                        if (b.onTop(below)) {
+                            fall = false;
+                            b.dependencies.add(below);
+                            below.dependents.add(b);
+                        }
+                    }
+                    if (fall) {
+                        bricks[z-1].add(b);
+                        b.fall();
+                    } else {
+                        new_brick_layer.add(b);
+                    }
+                }
+                bricks[z] = new_brick_layer;
+            }
+        }
 
         int result1 = 0;
         for (var brick : all_bricks) {
@@ -106,12 +104,10 @@ class Brick {
         if (yBrick()) {
             if (other.xBrick()) return contains(y, other.y.x) && contains(other.x, x.x);
             if (x.x != other.x.x) return false;
-            // if (other.zBrick()) return contains(y, other.y.x);
             return contains(y, other.y);
         }
         if (other.yBrick()) return contains(other.y, y.x) && contains(x, other.x.x);
         if (y.x != other.y.x) return false;
-        // if (other.zBrick()) return contains(x, other.x.x);
         return contains(x, other.x);
     }
 
