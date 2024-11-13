@@ -9,3 +9,5 @@
 **/*.il
 **/*.class
 **/env.fish
+**/*.hi
+**/*.o
