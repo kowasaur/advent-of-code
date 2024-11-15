@@ -8,12 +8,12 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Python      | \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*                                                                               |
 | TypeScript  | \*\*\*\*\*\*\*\*                                                                                             |
 | C           | \*\*\*\*\*\*\*\*                                                                                             |
+| Haskell     | \*\*\*\*\*\*                                                                                                 |
 | C#          | \*\*\*\*                                                                                                     |
 | Dart        | \*\*\*\*                                                                                                     |
 | C++         | \*\*\*\*                                                                                                     |
 | JavaScript  | \*\*\*\*                                                                                                     |
 | Go          | \*\*\*\*                                                                                                     |
-| Haskell     | \*\*\*\*                                                                                                     |
 | Rust        | \*\*\*                                                                                                       |
 | GDScript    | \*\*                                                                                                         |
 | g4m3rscr1pt | \*\*                                                                                                         |
