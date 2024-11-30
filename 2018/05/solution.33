@@ -1,0 +1,66 @@
+(m is a - c, this is + 2c - 2a)
+'flip'{aac"prev"lcmm}
+
+(absolute difference between prev and x, 
+ assuming x in accum)
+'absdiff'{
+    c"prev"l (prev in accum, curr in count) 
+    m
+    "flip"hqz
+}
+
+'previndex--'{"previndex"lz1mts}
+'previndex++'{"previndex"lz1ats}
+'currindex++'{"currindex"lz1atst}
+'remain++'{"remain"lz1atst}
+
+'match found'{
+    (replace them with -1)
+    zcz1mc
+    "currindex"lck
+    c"previndex"lckc
+
+    (go back to next non -1 thing)
+    [
+       "previndex--"q
+        cjzh1tc
+    ]
+}
+
+'no match'{
+    [
+        "previndex++"q
+        cjzh1tc
+    ]
+}
+
+It (read file into source)
+
+'previndex's
+j'prev's
+1j'curr's (start at index 1)
+c'currindex'sc
+
+(loop starts with current value in accumulator)
+[
+    t"absdiff"q
+    32m
+    "match found"nq
+    "no match"Nq
+
+    "currindex++"q
+
+    "previndex"lctj'prev'st
+    "currindex"lctj'curr's
+]
+
+'remain'zcs
+'currindex'scjt
+
+[
+   "remain++"gq
+   "currindex++"q
+   ctjt
+]
+
+"Part 1: "p"remain"loi
