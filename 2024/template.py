@@ -1,6 +1,11 @@
+import re
+from math import *
+
+
 def main():
     with open("input.txt") as f:
         lines = f.readlines()
+        # file = f.read()
 
     print("Part 1:",)
 
