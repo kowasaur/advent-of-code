@@ -31,3 +31,4 @@ These are my solutions for [Advent of Code](https://adventofcode.com). I have us
 | Desmos      | \*                                                                                                           |
 | Umi         | \*                                                                                                           |
 | 33          | \*                                                                                                           |
+| LOLCODE     | \*                                                                                                           |
