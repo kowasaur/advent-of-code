@@ -1,6 +1,8 @@
 import re
 from math import *
 
+Vec2 = tuple[int, int]
+
 
 def func(line: str) -> int:
     return 0
