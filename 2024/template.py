@@ -2,6 +2,7 @@ import re
 from math import *
 
 Vec2 = tuple[int, int]
+DIRS = [(0, 1), (1, 0), (0, -1), (-1, 0)]
 
 
 def func(line: str) -> int:
