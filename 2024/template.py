@@ -1,8 +1,13 @@
 import re
 from math import *
+from collections import defaultdict
 
 Vec2 = tuple[int, int]
 DIRS = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+
+
+def in_bounds(pos: Vec2, lines: list[str]) -> bool:
+    return 0 <= pos[0] < len(lines[0]) - 1 and 0 <= pos[1] < len(lines)
 
 
 def func(line: str) -> int:
