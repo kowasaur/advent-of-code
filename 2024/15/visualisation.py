@@ -1,3 +1,8 @@
+# Visualisation of part 2
+
+import curses
+from time import sleep
+
 Vec2 = tuple[int, int]
 
 
@@ -42,63 +47,7 @@ def movefr(pos: Vec2, grid: list[list[str]], dir: Vec2):
 
 
 def main():
-    with open("input.txt") as f:
-        parts = f.read().split("\n\n")
-
-    grid = [list(line) for line in parts[0].split("\n")]
-
-    p1 = 0
-
-    x, y = 0, 0
-    for y, line in enumerate(grid):
-        do_break = False
-        for x, c in enumerate(line):
-            if c == "@":
-                grid[y][x] = "."
-                do_break = True
-                break
-        if do_break:
-            break
-
-    for move in parts[1]:
-        if move == "<":
-            dx, dy = -1, 0
-        elif move == ">":
-            dx, dy = 1, 0
-        elif move == "^":
-            dx, dy = 0, -1
-        elif move == "v":
-            dx, dy = 0, 1
-        else:
-            continue
-
-        nx = x + dx
-        ny = y + dy
-        if grid[ny][nx] == "#":
-            continue
-
-        if grid[ny][nx] == ".":
-            x, y = nx, ny
-            continue
-
-        bx, by = nx, ny
-        while grid[by][bx] == "O":
-            bx += dx
-            by += dy
-
-        if grid[by][bx] == "#":
-            continue
-
-        grid[by][bx] = "O"
-        grid[ny][nx] = "."
-        x, y = nx, ny
-
-    for y, line in enumerate(grid):
-        for x, c in enumerate(line):
-            if c == "O":
-                p1 += y * 100 + x
-
-    print("Part 1:", p1)
+    stdscr = curses.initscr()
 
     with open("input.txt") as f:
         parts = f.read().split("\n\n")
@@ -118,8 +67,6 @@ def main():
                 x.append(c)
                 x.append(c)
 
-    p2 = 0
-
     x, y = 0, 0
     for y, line in enumerate(grid):
         do_break = False
@@ -154,12 +101,11 @@ def main():
 
         bx, by = nx, ny
 
-        if dy == 0:
+        if dy == 0:  # horizontal
             c = "]" if dx == -1 else "["
 
             while grid[by][bx] == c:
                 bx += dx * 2
-                by += dy * 2
 
             if grid[by][bx] == "#":
                 continue
@@ -170,6 +116,7 @@ def main():
             else:
                 for ax in range(bx, nx, -1):
                     grid[by][ax] = grid[by][ax - 1]
+                by += dy * 2
 
             grid[ny][nx] = "."
             x, y = nx, ny
@@ -178,12 +125,15 @@ def main():
                 movefr((x, y), grid, (dx, dy))
                 x, y = nx, ny
 
-    for y, line in enumerate(grid):
-        for x, c in enumerate(line):
-            if c == "[":
-                p2 += y * 100 + x
+        stdscr.move(0, 0)
+        for y1, line in enumerate(grid):
+            for x1, c in enumerate(line):
+                stdscr.addstr("@" if (x1, y1) == (x, y) else c)
+            stdscr.move(y1 + 1, 0)
+        stdscr.refresh()
+        sleep(0.05)
 
-    print("Part 2:", p2)
+    curses.endwin()
 
 
 if __name__ == '__main__':
