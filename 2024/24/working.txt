@@ -1,0 +1,32 @@
+# for sure these two one of them is a p
+qnf: m36 needs to swap with whatever p36 is (vpm)
+htb: c36
+thg = htb AND qnf ps
+z36 = htb XOR qnf ps
+
+wkk: c37
+cmf: c27
+jng: p35
+bbb: h35
+htb: c36 (which seems to be)
+wkk = thg OR vpm ms
+cmf = gsd OR kbg ms
+
+
+
+# FOR SURE
+
+tbt = bkh XOR vtg
+z32 = bkh AND vtg
+
+dfp: p26
+mbg: c26
+gsd: m26
+z26 = x26 AND y26
+gsd = dfp XOR mbg
+
+psw: m12
+kth: c13
+nhb: p12
+z12 = nng OR psw
+kth = cdq XOR nhb
