@@ -14,9 +14,8 @@ def func(line: str) -> int:
     return 0
 
 
-def main():
-    # with open("sample.txt") as f:
-    with open("input.txt") as f:
+def main(input_file: str = "input.txt"):
+    with open(input_file) as f:
         lines = f.read().splitlines()
         # file = f.read()
 
@@ -31,9 +30,9 @@ def main():
             pass
 
     print("Part 1:", p1)
-
     print("Part 2:", p2)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    main("sample.txt")
     main()
